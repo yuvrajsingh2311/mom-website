@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mom ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(to bottom,#ffd9e8,#fff6fa);
+overflow-x:hidden;
+color:#333;
+}
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:25px;
+position:relative;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:3rem;
+color:#ff2f78;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:1.8;
+max-width:500px;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:#ff2f78;
+color:white;
+font-size:1rem;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.card{
+width:340px;
+background:white;
+padding:18px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+text-align:center;
+animation:fadeUp 1s ease;
+}
+
+.card img{
+width:100%;
+height:430px;
+object-fit:cover;
+border-radius:22px;
+margin-bottom:15px;
+}
+
+.card h2{
+color:#ff2f78;
+margin-bottom:10px;
+}
+
+.card p{
+line-height:1.7;
+font-size:0.95rem;
+}
+
+.final{
+flex-direction:column;
+text-align:center;
+}
+
+.final h1{
+font-size:2.7rem;
+color:#ff2f78;
+margin-bottom:20px;
+}
+
+.final p{
+max-width:600px;
+line-height:1.9;
+font-size:1.1rem;
+padding:0 20px;
+}
+
+.hearts span{
+position:fixed;
+font-size:20px;
+animation:float 7s linear infinite;
+bottom:-50px;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.music{
+position:fixed;
+top:15px;
+right:15px;
+background:white;
+padding:10px 18px;
+border-radius:50px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+font-size:14px;
+z-index:100;
+}
+
+.scroll-note{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff2f78;
+color:white;
+padding:12px 18px;
+border-radius:40px;
+font-size:14px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+z-index:100;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div class="music">💖 For My Cute Mom</div>
+<div class="scroll-note">Magic ✨</div>
+
+<div class="hearts">
+<span style="left:10%;animation-delay:0s;">❤️</span>
+<span style="left:30%;animation-delay:2s;">💖</span>
+<span style="left:50%;animation-delay:4s;">🌸</span>
+<span style="left:70%;animation-delay:1s;">💕</span>
+<span style="left:90%;animation-delay:3s;">✨</span>
+</div>
+
+<section class="hero">
+
+<h1>For My Mom ❤️</h1>
+
+<p>
+The most beautiful woman in my life.<br>
+Thank you for every smile, every hug and every moment of love ✨
+</p>
+
+<button class="btn" onclick="startExperience()">
+Open Surprise ✨
+</button>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<img src="mom1.jpeg">
+
+<h2>My Strong Mom 💕</h2>
+
+<p>
+You make every day beautiful.<br>
+Your smile gives peace and happiness to everyone ❤️
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<img src="mom2.jpeg">
+
+<h2>Queen Ranu 👑</h2>
+
+<p>
+Elegant, caring and strong.<br>
+You are the heart of our family ✨
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<img src="momdad.jpeg">
+
+<h2>Beautiful Memories ❤️</h2>
+
+<p>
+Some moments become forever special.<br>
+This is one of my favorite memories ✨
+</p>
+
+</div>
+
+</section>
+
+<section class="final">
+
+<h1>I Love You Mom ❤️</h1>
+
+<p>
+No matter how big I become,<br>
+I will always be your child.<br><br>
+
+Thank you for always standing beside me.<br>
+You are my biggest blessing ✨
+</p>
+
+</section>
+
+<script>
+
+function startExperience(){
+
+document.getElementById("bgMusic").play();
+
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
+});
+
+let sections=document.querySelectorAll('section');
+let current=1;
+
+// Auto Scroll
+let auto=setInterval(()=>{
+
+if(current>=sections.length){
+clearInterval(auto);
+return;
+}
+
+sections[current].scrollIntoView({
+behavior:'smooth'
+});
+
+current++;
+
+},4000);
+
+}
+
+</script>
+
+</body>
+</html>
