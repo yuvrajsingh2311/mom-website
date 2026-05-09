@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Mom ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -26,6 +27,8 @@ overflow-x:hidden;
 color:#333;
 }
 
+/* Sections */
+
 section{
 min-height:100vh;
 display:flex;
@@ -34,6 +37,8 @@ align-items:center;
 padding:25px;
 position:relative;
 }
+
+/* Hero */
 
 .hero{
 flex-direction:column;
@@ -69,6 +74,8 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
+/* Cards */
+
 .card{
 width:340px;
 background:white;
@@ -97,6 +104,8 @@ line-height:1.7;
 font-size:0.95rem;
 }
 
+/* Final */
+
 .final{
 flex-direction:column;
 text-align:center;
@@ -114,6 +123,8 @@ line-height:1.9;
 font-size:1.1rem;
 padding:0 20px;
 }
+
+/* Floating Hearts */
 
 .hearts span{
 position:fixed;
@@ -137,6 +148,8 @@ opacity:0;
 }
 }
 
+/* Fade */
+
 @keyframes fadeUp{
 from{
 opacity:0;
@@ -147,6 +160,184 @@ opacity:1;
 transform:translateY(0);
 }
 }
+
+/* Cake Screen */
+
+.candle-container{
+display:none;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:linear-gradient(to bottom,#fff0f5,#ffe4ec);
+z-index:999;
+overflow:hidden;
+}
+
+/* Cake */
+
+.cake{
+position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
+animation:fadeUp 1s ease;
+}
+
+.cake-body{
+width:240px;
+height:120px;
+background:linear-gradient(to bottom,#ff5c8d,#ff2f78);
+border-radius:20px;
+position:relative;
+box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.cake-top{
+width:250px;
+height:35px;
+background:#fff;
+border-radius:50px;
+margin-bottom:-10px;
+z-index:2;
+}
+
+/* Candle */
+
+.candle{
+position:relative;
+width:24px;
+height:90px;
+background:#fff;
+border-radius:10px;
+margin-bottom:-5px;
+z-index:3;
+}
+
+.candle::before{
+content:'';
+position:absolute;
+width:100%;
+height:10px;
+background:#ff7eb3;
+top:15px;
+}
+
+.candle::after{
+content:'';
+position:absolute;
+width:100%;
+height:10px;
+background:#ff7eb3;
+top:45px;
+}
+
+/* Flame */
+
+.flame{
+position:absolute;
+top:-40px;
+left:50%;
+transform:translateX(-50%);
+width:28px;
+height:42px;
+background:gold;
+border-radius:50%;
+cursor:pointer;
+animation:flicker 0.25s infinite alternate;
+box-shadow:0 0 25px orange;
+}
+
+@keyframes flicker{
+from{
+transform:translateX(-50%) scale(1);
+}
+to{
+transform:translateX(-50%) scale(1.15);
+}
+}
+
+/* Blow */
+
+.blow{
+animation:blowOut 1s forwards !important;
+}
+
+@keyframes blowOut{
+0%{
+opacity:1;
+transform:translateX(-50%) scale(1);
+}
+50%{
+transform:translateX(-80%) scale(1.4);
+opacity:0.7;
+}
+100%{
+opacity:0;
+transform:translateX(-120%) scale(0);
+}
+}
+
+/* Smoke */
+
+.smoke{
+position:absolute;
+top:-50px;
+left:50%;
+transform:translateX(-50%);
+font-size:35px;
+animation:smokeRise 2s forwards;
+opacity:0.7;
+}
+
+@keyframes smokeRise{
+0%{
+opacity:0.8;
+transform:translateX(-50%) translateY(0);
+}
+100%{
+opacity:0;
+transform:translateX(-50%) translateY(-90px);
+}
+}
+
+/* Sparkles */
+
+.sparkle{
+position:fixed;
+font-size:24px;
+animation:spark 2s linear infinite;
+pointer-events:none;
+}
+
+@keyframes spark{
+0%{
+transform:translateY(0) scale(0.5);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120px) scale(1.5);
+opacity:0;
+}
+}
+
+.candle-text{
+margin-top:35px;
+font-size:1.2rem;
+color:#ff2f78;
+font-weight:600;
+text-align:center;
+padding:0 20px;
+}
+
+/* Top Buttons */
 
 .music{
 position:fixed;
@@ -178,12 +369,19 @@ z-index:100;
 
 <body>
 
+<!-- Background Music -->
+
 <audio id="bgMusic" loop>
 <source src="song.mp3" type="audio/mp3">
 </audio>
 
-<div class="music">💖 For My Cute Mom</div>
-<div class="scroll-note">Magic ✨</div>
+<div class="music">💖 For Cute Mom</div>
+
+<div class="scroll-note">
+Made With Love ❤️
+</div>
+
+<!-- Floating Hearts -->
 
 <div class="hearts">
 <span style="left:10%;animation-delay:0s;">❤️</span>
@@ -192,6 +390,32 @@ z-index:100;
 <span style="left:70%;animation-delay:1s;">💕</span>
 <span style="left:90%;animation-delay:3s;">✨</span>
 </div>
+
+<!-- Cake Surprise -->
+
+<div class="candle-container" id="candleScreen">
+
+<div class="cake">
+
+<div class="candle" id="mainCandle">
+
+<div class="flame" id="flame" onclick="blowCandle()"></div>
+
+</div>
+
+<div class="cake-top"></div>
+
+<div class="cake-body"></div>
+
+</div>
+
+<div class="candle-text">
+Touch The Candle Flame ✨
+</div>
+
+</div>
+
+<!-- Hero -->
 
 <section class="hero">
 
@@ -203,10 +427,12 @@ Thank you for every smile, every hug and every moment of love ✨
 </p>
 
 <button class="btn" onclick="startExperience()">
-Open Surprise (click Here)✨
+Open Surprise ✨
 </button>
 
 </section>
+
+<!-- Photo 1 -->
 
 <section>
 
@@ -225,6 +451,8 @@ Your smile gives peace and happiness to everyone ❤️
 
 </section>
 
+<!-- Photo 2 -->
+
 <section>
 
 <div class="card">
@@ -241,6 +469,8 @@ You are the heart of our family ✨
 </div>
 
 </section>
+
+<!-- Photo 3 -->
 
 <section>
 
@@ -259,6 +489,8 @@ This is one of my favorite memories ✨
 
 </section>
 
+<!-- Final -->
+
 <section class="final">
 
 <h1>I Love You Mom ❤️</h1>
@@ -275,9 +507,63 @@ You are my biggest blessing ✨
 
 <script>
 
+/* Start */
+
 function startExperience(){
 
 document.getElementById("bgMusic").play();
+
+document.getElementById("candleScreen").style.display="flex";
+
+}
+
+/* Blow Candle */
+
+function blowCandle(){
+
+let flame=document.getElementById("flame");
+
+flame.classList.add("blow");
+
+/* Smoke */
+
+let smoke=document.createElement("div");
+
+smoke.classList.add("smoke");
+
+smoke.innerHTML="☁️";
+
+document.getElementById("mainCandle").appendChild(smoke);
+
+/* Open Memories */
+
+setTimeout(()=>{
+
+document.getElementById("candleScreen").style.display="none";
+
+/* Sparkles */
+
+for(let i=0;i<30;i++){
+
+let sparkle=document.createElement("div");
+
+sparkle.classList.add("sparkle");
+
+sparkle.innerHTML="✨";
+
+sparkle.style.left=Math.random()*100+"%";
+sparkle.style.top=Math.random()*100+"%";
+sparkle.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove();
+},3000);
+
+}
+
+/* Scroll */
 
 window.scrollTo({
 top:window.innerHeight,
@@ -285,9 +571,9 @@ behavior:'smooth'
 });
 
 let sections=document.querySelectorAll('section');
+
 let current=1;
 
-// Auto Scroll
 let auto=setInterval(()=>{
 
 if(current>=sections.length){
@@ -301,7 +587,9 @@ behavior:'smooth'
 
 current++;
 
-},4000);
+},5000);
+
+},1200);
 
 }
 
